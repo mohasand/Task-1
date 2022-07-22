@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1894.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.6px Times; color: #a0aab8; -webkit-text-stroke: #a0aab8}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.6px Times; color: #a0aab8; -webkit-text-stroke: #a0aab8; min-height: 16.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Speech to text in JavaScript&lt;/title&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>-webkit-box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>-moz-box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>-ms-box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>box-sizing: border-box;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>background:linear-gradient(to right , rgb(4, 28, 185), rgb(244, 244, 244) );</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>display: flex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>align-items: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>justify-content: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>min-height: 100vh;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>color: #000;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-family: Arial, Helvetica, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 30px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>color: rgb(6, 4, 4);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>textarea {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>height: 200px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>font-size: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>margin-bottom: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button,select{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>padding: 12px 20px ;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>background: rgb(21, 11, 11);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>border: 0px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>color: rgb(11, 88, 47);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover,select:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>background: rgb(197, 161, 230);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">     </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h1&gt;Text to Speech in JavaScript&lt;/h1&gt;<span class="Apple-converted-space"> </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;textarea style="text-align: right;"; id="output" name="output" rows="30" cols="50" placeholder=" "&gt;&lt;/textarea&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select name="language_Rec" id="language_Rec"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="ar"&gt;Arabic&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="en"&gt;English&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt; <span class="Apple-converted-space">   </span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="start" name="start"&gt;Start Recording&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button<span class="Apple-converted-space">  </span>id="stop" name="stop"&gt;Stop Recording&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>var output = document.getElementById("output");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>var start = document.getElementById("start");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>var stop = document.getElementById("stop");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>var language_Rec = document.getElementById("language_Rec");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>var speechRecognition = speechRecognition || webkitSpeechRecognition;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>var recognizer = new speechRecognition();</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>recognizer.lang = 'ar';</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>language_Rec.onchange = function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>recognizer.lang = language_Rec.value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>start.onclick = function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>recognizer.start();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>stop.onclick = function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>recognizer.stop();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>recognizer.onspeechend = function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>stop.click();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>recognizer.onresult = function(event) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>var Textbox = event.results[0][0].transcript;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>output.value = Textbox;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<p class="p1"><span class="s1"><br>
+</span></p>
+</body>
+</html>
